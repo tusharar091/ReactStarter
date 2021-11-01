@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import './App.css';
 import GroceryList from './components/GroceryList';
 function App() {
-  const items = ["tomato", "potato"];
+  const [items, setItems] = useState(["tomato", "potato"]);
   return (
     <div className="App">
       <header className="App-header">
@@ -10,6 +11,9 @@ function App() {
       </header>
     </div>
   );
+  const addItem = (item) => {
+    setItems(...items, item);
+  }
 }
 
 export default App;
