@@ -1,8 +1,9 @@
-const GroceryItem = ({ item }) => {
+const GroceryItem = ({ item, removeItem }) => {
     return (
         <div>
             <span>{item}</span>
-        </div>
+            <button className="redButton" onClick={() => removeItem(item)} > Delete</button>
+        </div >
     );
 }
 export default GroceryItem;

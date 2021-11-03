@@ -36,3 +36,4 @@ const GroceryForm = ({ addItem }) => {
         </div>
     )
 }
+export default GroceryForm
