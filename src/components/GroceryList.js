@@ -1,16 +1,17 @@
 import GroceryItem from "./GroceryItem";
 const GroceryList = ({ items, removeItem }) => {
+    console.log(items);
     return (
-        <div className="items-list">
-            <ul>
+        <div className="grid-container">
+            <ol>
                 {
-                    items.map((item) => {
-                        <li>
+                    items.map(item => {
+                        return (<li>
                             <GroceryItem key={item} item={item} removeItem={removeItem} />
-                        </li>
+                        </li>)
                     })
                 }
-            </ul>
+            </ol>
         </div>
     )
 }
