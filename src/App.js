@@ -26,7 +26,7 @@ function App() {
       <header className="App-header">
         <GroceryList items={items} removeItem={removeItem} />
         <GroceryForm addItem={addItem} />
-        Grocery Items;
+        Grocery Items
       </header>
     </div>
   );
