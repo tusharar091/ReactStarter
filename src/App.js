@@ -7,7 +7,7 @@ function App() {
   const [items, setItems] = useState(savedItems || []);
 
   const addItem = (item) => {
-    setItems(...items, item);
+    setItems([...items, item]);
   }
   const removeItem = (itemToBeDeleted) => {
     setItems(items.filter(item => item !== itemToBeDeleted));
