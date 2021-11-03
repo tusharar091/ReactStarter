@@ -12,6 +12,15 @@ function App() {
   const removeItem = (itemToBeDeleted) => {
     setItems(items.filter(item => item !== itemToBeDeleted));
   }
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("items"));
+    if (items) {
+      setItems(items);
+    }
+  }, [])
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items])
   return (
     <div className="App">
       <header className="App-header">
