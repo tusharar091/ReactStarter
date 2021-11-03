@@ -19,7 +19,7 @@ const GroceryForm = ({ addItem }) => {
                         value={item}
                         onChange={(e) => setItem(e.target.value)}
                     />
-                    <label for="name" class="label">
+                    <label htmlFor="name" className="label">
                         Item Name
                     </label>
                 </div>
