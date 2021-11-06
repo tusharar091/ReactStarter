@@ -1,6 +1,6 @@
 const GroceryItem = ({ item, removeItem }) => {
     return (
-        <div>
+        <div className="list-item-container">
             <span>{item}</span>
             <button className="redButton" onClick={() => removeItem(item)} > Delete</button>
         </div >

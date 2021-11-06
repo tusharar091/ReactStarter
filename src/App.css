@@ -16,8 +16,10 @@
 body {
   background-color: #12b886;
 }
-li{
-  text-align: left;
+.list-item-container{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 .myButton {
   background-color: #fd7e14;
