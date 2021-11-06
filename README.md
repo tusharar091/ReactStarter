@@ -1,7 +1,23 @@
 # Getting Started with Create React App
 
-This is start of my journey with React.
+This is start of my journey with React. Here I will be learning react by creating multiple standalone projects.
 
+## Projects
+## [Personalized Boiler Plate (v1.0.0)](https://github.com/tusharar091/ReactStarter/releases/tag/v1.0.0)
+### Release Notes :-
+1. Customized boilerplate with personalized GitHub profile link.
+## [Grocery List Application (v2.0.0)](https://github.com/tusharar091/ReactStarter/releases/tag/v2.0.0)
+This application is a simple grocery list application which provides users the ability to add or remove items to/from grocery list. This application saves/reads list data to/from browser's local storage to maintain persistency.
+
+### Release Notes :-
+1. A UI which includes a form where user can enter the items he/she wants to add to the list.
+2. Delete button using which user can remove the items from the list.
+![image](https://user-images.githubusercontent.com/22867124/140619041-91dafa8d-9ef2-4963-ab71-3288d265729f.png)
+
+
+#### To Be Added:-
+1. Duplicate key(item name) insertion.
+2. Quantity label using which user can quantify the items.
 ## Available Scripts
 
 In the project directory, you can run:
