@@ -1,22 +1,32 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
-
+import GroceryList from './components/GroceryList';
+import GroceryForm from './components/GroceryForm';
 function App() {
+  const savedItems = JSON.parse(localStorage.getItem('items'));
+  const [items, setItems] = useState(savedItems || []);
+
+  const addItem = (item) => {
+    setItems([...items, item]);
+  }
+  const removeItem = (itemToBeDeleted) => {
+    setItems(items.filter(item => item !== itemToBeDeleted));
+  }
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("items"));
+    if (items) {
+      setItems(items);
+    }
+  }, [])
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items])
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hi, My name is <code>Tushar</code>
-        </p>
-        <a
-          className="App-link"
-          href="https://github.com/tusharar091"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          See my Github Profile
-        </a>
+        <GroceryList items={items} removeItem={removeItem} />
+        <GroceryForm addItem={addItem} />
+        Grocery Items
       </header>
     </div>
   );
