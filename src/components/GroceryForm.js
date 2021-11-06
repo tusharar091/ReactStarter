@@ -22,16 +22,13 @@ const GroceryForm = ({ addItem }) => {
                     <label htmlFor="name" className="label">
                         Item Name
                     </label>
+                    <button className="myButton">
+                        <span role="img" aria-label="bag">
+                            🛍️
+                        </span>
+                    </button>
                 </div>
                 <br />
-                <button className="myButton">
-                    {" "}
-                    Add in Bag
-                    <span role="img" aria-label="bag">
-                        {" "}
-                        🛍️
-                    </span>
-                </button>
             </form>
         </div>
     )
