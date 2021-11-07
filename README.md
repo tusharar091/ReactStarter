@@ -6,18 +6,23 @@ This is start of my journey with React. Here I will be learning react by creatin
 ## [Personalized Boiler Plate (v1.0.0)](https://github.com/tusharar091/ReactStarter/releases/tag/v1.0.0)
 ### Release Notes :-
 1. Customized boilerplate with personalized GitHub profile link.
-## [Grocery List Application (v2.0.0)](https://github.com/tusharar091/ReactStarter/releases/tag/v2.0.0)
+## [Grocery List Application (v2.1.0)](https://github.com/tusharar091/ReactStarter/releases/tag/v2.1.0)
 This application is a simple grocery list application which provides users the ability to add or remove items to/from grocery list. This application saves/reads list data to/from browser's local storage to maintain persistency.
 
 ### Release Notes :-
 1. A UI which includes a form where user can enter the items he/she wants to add to the list.
 2. Delete button using which user can remove the items from the list.
-![image](https://user-images.githubusercontent.com/22867124/140619041-91dafa8d-9ef2-4963-ab71-3288d265729f.png)
+3. Quantify counter to update quantity of the grocery items.
+![image](https://user-images.githubusercontent.com/22867124/140656755-a7c1ab27-0d5f-4e55-b259-46775665e018.png)
 
+### Fixes :- 
+1. Alignment of list view
+2. Delete Button Alignment
+3. Add Button Minimalization
 
-#### To Be Added:-
-1. Duplicate key(item name) insertion.
-2. Quantity label using which user can quantify the items.
+### Enhancements :-
+1. Addition of quantify counter to update quantity of the grocery items.
+2. Duplicate key insertion has been removed, on adding duplicate item quantity is incremented by 1 now instead of adding duplicate list item.
 ## Available Scripts
 
 In the project directory, you can run:
