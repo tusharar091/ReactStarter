@@ -20,6 +20,10 @@ body {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
+}
+.quantity-selector{
+  width: 12%;
 }
 .myButton {
   background-color: #fd7e14;

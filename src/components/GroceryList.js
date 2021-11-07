@@ -1,13 +1,12 @@
 import GroceryItem from "./GroceryItem";
-const GroceryList = ({ items, removeItem }) => {
-    console.log(items);
+const GroceryList = ({ items, quantity, updateQuantity, removeItem }) => {
     return (
         <div className="grid-container">
             <ol>
                 {
-                    items.map(item => {
-                        return (<li>
-                            <GroceryItem key={item} item={item} removeItem={removeItem} />
+                    items.map((item, index) => {
+                        return (<li key={item}>
+                            <GroceryItem key={item} item={item} quantity={quantity[index]} updateQuantity={updateQuantity} removeItem={removeItem} />
                         </li>)
                     })
                 }

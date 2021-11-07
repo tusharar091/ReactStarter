@@ -1,8 +1,21 @@
-const GroceryItem = ({ item, removeItem }) => {
+const GroceryItem = ({ item, quantity, updateQuantity, removeItem }) => {
+    const update = (value) => {
+        updateQuantity(Number(value), item);
+    }
     return (
         <div className="list-item-container">
             <span>{item}</span>
-            <button className="redButton" onClick={() => removeItem(item)} > Delete</button>
+            <span>
+                <input type="number"
+                    id={`quantity_${item}`}
+                    name="quantity"
+                    min="1"
+                    className="quantity-selector"
+                    defaultValue={quantity}
+                    onChange={(e) => { update(e.target.value) }}
+                />
+                <button className="redButton" onClick={() => removeItem(item)} > Delete</button>
+            </span>
         </div >
     );
 }
