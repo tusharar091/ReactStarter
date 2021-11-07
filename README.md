@@ -6,7 +6,7 @@ This is start of my journey with React. Here I will be learning react by creatin
 ## [Personalized Boiler Plate (v1.0.0)](https://github.com/tusharar091/ReactStarter/releases/tag/v1.0.0)
 ### Release Notes :-
 1. Customized boilerplate with personalized GitHub profile link.
-## [Grocery List Application (v2.1.0)](https://github.com/tusharar091/ReactStarter/releases/tag/v2.0.0)
+## [Grocery List Application (v2.0.0)](https://github.com/tusharar091/ReactStarter/releases/tag/v2.0.0)
 This application is a simple grocery list application which provides users the ability to add or remove items to/from grocery list. This application saves/reads list data to/from browser's local storage to maintain persistency.
 
 ### Release Notes :-
