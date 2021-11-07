@@ -11,7 +11,7 @@ const GroceryItem = ({ item, quantity, updateQuantity, removeItem }) => {
                     name="quantity"
                     min="1"
                     className="quantity-selector"
-                    defaultValue={quantity}
+                    value={quantity || 1}
                     onChange={(e) => { update(e.target.value) }}
                 />
                 <button className="redButton" onClick={() => removeItem(item)} > Delete</button>

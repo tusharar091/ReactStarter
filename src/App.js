@@ -9,6 +9,10 @@ function App() {
   const [quantity, setQuantity] = useState(savedQuantity || []);
 
   const addItem = (item) => {
+    if (items.includes(item)) {
+      updateQuantity(null, item, true);
+      return;
+    }
     setItems([...items, item]);
     initQuantity();
   }
@@ -17,13 +21,14 @@ function App() {
   }
   const removeItem = (itemToBeDeleted) => {
     setItems(items.filter(item => item !== itemToBeDeleted));
-    removeQuantity();
+    removeQuantity(itemToBeDeleted);
   }
   const removeQuantity = itemToBeDeleted => {
     setQuantity(quantity.filter((quant, index) => index !== items.indexOf(itemToBeDeleted)));
   }
-  const updateQuantity = (value, item) => {
-    quantity[items.indexOf(item)] = value;
+  const updateQuantity = (value, item, increment = false) => {
+    const index = items.indexOf(item);
+    quantity[index] = increment ? quantity[index] + 1 : value;
     setQuantity([...quantity]);
   }
   useEffect(() => {
