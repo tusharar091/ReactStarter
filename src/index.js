@@ -47,7 +47,8 @@ class Game extends React.Component {
             history: [{
                 squares: new Array(9).fill(null)
             }],
-            isXNext: true
+            isXNext: true,
+            stepNumber: 0
         }
     }
     updateStateOnMove(i) {
@@ -79,15 +80,21 @@ class Game extends React.Component {
         return { status, current };
     }
     generateMoveHistoryComp() {
-        const moves = this.state.history.map((step, move) => {
+        const moves = this.state.history.map((boardState, move) => {
             const desc = move ? `Go To Move #${move}` : `Go to Game Start`;
             return (
                 <li key={move}>
-                    <button>{desc}</button>
+                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             )
         });
         return moves;
+    }
+    jumpTo(step) {
+        this.setState({
+            stepNumber: step,
+            isXNext: (step % 2) === 0
+        })
     }
     render() {
         const outcome = this.determineOutcome();
