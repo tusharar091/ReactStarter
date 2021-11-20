@@ -52,7 +52,7 @@ class Game extends React.Component {
         }
     }
     updateStateOnMove(i) {
-        const history = this.state.history.slice();
+        const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
         const squares = current.squares.slice();
         const isMarked = squares[i] !== null;
@@ -63,12 +63,13 @@ class Game extends React.Component {
         history.push({ squares });
         this.setState({
             history: history,
-            isXNext: !this.state.isXNext
+            isXNext: !this.state.isXNext,
+            stepNumber: history.length - 1
         });
     }
     determineOutcome() {
         let history = this.state.history.slice();
-        let current = history[history.length - 1];
+        let current = history[this.state.stepNumber];
         let status;
         const winner = calculateWinner(current.squares);
         if (winner !== null) {
