@@ -50,7 +50,7 @@ class Game extends React.Component {
             isXNext: true
         }
     }
-    handleClick(i) {
+    updateStateOnMove(i) {
         const history = this.state.history.slice();
         const current = history[history.length - 1];
         const squares = current.squares.slice();
@@ -65,25 +65,41 @@ class Game extends React.Component {
             isXNext: !this.state.isXNext
         });
     }
-    render() {
+    determineOutcome() {
         let history = this.state.history.slice();
         let current = history[history.length - 1];
         let status;
-        const winner = calculateWinner(current);
+        const winner = calculateWinner(current.squares);
         if (winner !== null) {
             status = `Winner is ${winner}`;
         } else {
             const nextTurn = this.state.isXNext ? 'X' : '0';
             status = `Next player: ${nextTurn}`;
         }
+        return { status, current };
+    }
+    generateMoveHistoryComp() {
+        const moves = this.state.history.map((step, move) => {
+            const desc = move ? `Go To Move #${move}` : `Go to Game Start`;
+            return (
+                <li>
+                    <button>{desc}</button>
+                </li>
+            )
+        });
+        return moves;
+    }
+    render() {
+        const outcome = this.determineOutcome();
+        const moves = this.generateMoveHistoryComp();
         return (
             <div className="game">
                 <div className="game-board">
-                    <Board value={current.squares} onClick={(i) => this.handleClick(i)} />
+                    <Board value={outcome.current.squares} onClick={(i) => this.updateStateOnMove(i)} />
                 </div>
                 <div className="game-info">
-                    <div>{status}</div>
-                    <ol>{/* TODO */}</ol>
+                    <div>{outcome.status}</div>
+                    <ol>{moves}</ol>
                 </div>
             </div>
         );
