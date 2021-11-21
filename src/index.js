@@ -82,7 +82,9 @@ class Game extends React.Component {
     }
     generateMoveHistoryComp() {
         const moves = this.state.history.map((boardState, move) => {
-            const desc = move ? `Go To Move #${move}` : `Go to Game Start`;
+            const colRow = move && this.getColRow(this.state.history[move - 1], boardState);
+            const desc = move ? `Go To Move #${move} at row 
+            : ${colRow.row}, col : ${colRow.col}` : `Go to Game Start`;
             return (
                 <li key={move}>
                     <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -90,6 +92,17 @@ class Game extends React.Component {
             )
         });
         return moves;
+    }
+    getColRow(previousState, currentState) {
+        const prevBoard = previousState.squares;
+        const currBoard = currentState.squares;
+        for (let index in currBoard) {
+            const prevSqaure = prevBoard[index];
+            if (prevSqaure === null && currBoard[index] != prevSqaure) {
+                return { col: index % 3, row: Math.floor(index / 3) }
+            }
+        }
+        return { col: -1, row: -1 }
     }
     jumpTo(step) {
         this.setState({
