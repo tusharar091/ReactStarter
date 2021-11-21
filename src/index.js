@@ -87,7 +87,7 @@ class Game extends React.Component {
             : ${Math.floor(boardState.movePosition / 3)}, col : ${boardState.movePosition % 3}`
                 : `Go to Game Start`;
             return (
-                <li key={move}>
+                <li key={move} className={move === this.state.stepNumber ? 'move-item-selected' : ''}>
                     <button onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             )

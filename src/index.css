@@ -48,3 +48,6 @@ ol, ul {
 .game-info {
   margin-left: 20px;
 }
+li.move-item-selected{
+  font-weight: bold;
+}
