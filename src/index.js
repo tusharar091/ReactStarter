@@ -45,7 +45,8 @@ class Game extends React.Component {
         super(props)
         this.state = {
             history: [{
-                squares: new Array(9).fill(null)
+                squares: new Array(9).fill(null),
+                movePosition: -1
             }],
             isXNext: true,
             stepNumber: 0
@@ -60,7 +61,7 @@ class Game extends React.Component {
             return;
         }
         squares[i] = this.state.isXNext ? 'X' : '0';
-        history.push({ squares });
+        history.push({ squares, movePosition: i });
         this.setState({
             history: history,
             isXNext: !this.state.isXNext,
@@ -82,9 +83,9 @@ class Game extends React.Component {
     }
     generateMoveHistoryComp() {
         const moves = this.state.history.map((boardState, move) => {
-            const colRow = move && this.getColRow(this.state.history[move - 1], boardState);
             const desc = move ? `Go To Move #${move} at row 
-            : ${colRow.row}, col : ${colRow.col}` : `Go to Game Start`;
+            : ${Math.floor(boardState.movePosition / 3)}, col : ${boardState.movePosition % 3}`
+                : `Go to Game Start`;
             return (
                 <li key={move}>
                     <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -92,17 +93,6 @@ class Game extends React.Component {
             )
         });
         return moves;
-    }
-    getColRow(previousState, currentState) {
-        const prevBoard = previousState.squares;
-        const currBoard = currentState.squares;
-        for (let index in currBoard) {
-            const prevSqaure = prevBoard[index];
-            if (prevSqaure === null && currBoard[index] != prevSqaure) {
-                return { col: index % 3, row: Math.floor(index / 3) }
-            }
-        }
-        return { col: -1, row: -1 }
     }
     jumpTo(step) {
         this.setState({
