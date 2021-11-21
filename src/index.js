@@ -20,6 +20,7 @@ class Board extends React.Component {
         return (
             <div>
                 {
+                    //using two for loops for board creation
                     [0, 1, 2].map((i) => {
                         return <div key={i} className="board-row">
                             {
@@ -50,6 +51,7 @@ class Game extends React.Component {
             }],
             isXNext: true,
             stepNumber: 0,
+            //sorting order
             asc: true
         }
     }
@@ -62,6 +64,7 @@ class Game extends React.Component {
             return;
         }
         squares[i] = this.state.isXNext ? 'X' : '0';
+        //storing move position in the state.
         history.push({ squares, movePosition: i });
         this.setState({
             history: history,
@@ -84,6 +87,7 @@ class Game extends React.Component {
     }
     generateMoveHistoryComp() {
         const moves = this.state.history.map((boardState, move) => {
+            //getting row, col info in list from move position in state
             const desc = move ? `Go To Move #${move} at row 
             : ${Math.floor(boardState.movePosition / 3)}, col : ${boardState.movePosition % 3}`
                 : `Go to Game Start`;
@@ -93,6 +97,7 @@ class Game extends React.Component {
                 </li>
             )
         });
+        //ascednding descending sorting
         return this.state.asc ? moves : moves.reverse();
     }
     jumpTo(step) {
