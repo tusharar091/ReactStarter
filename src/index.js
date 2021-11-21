@@ -49,7 +49,8 @@ class Game extends React.Component {
                 movePosition: -1
             }],
             isXNext: true,
-            stepNumber: 0
+            stepNumber: 0,
+            asc: true
         }
     }
     updateStateOnMove(i) {
@@ -92,7 +93,7 @@ class Game extends React.Component {
                 </li>
             )
         });
-        return moves;
+        return this.state.asc ? moves : moves.reverse();
     }
     jumpTo(step) {
         this.setState({
@@ -111,6 +112,15 @@ class Game extends React.Component {
                 <div className="game-info">
                     <div>{outcome.status}</div>
                     <ol>{moves}</ol>
+                </div>
+                <div>
+                    <input type="checkbox" onClick={(e) => {
+                        let asc = true;
+                        e.target.checked ? asc = false : asc = true;
+                        this.setState({
+                            asc: asc
+                        })
+                    }} />
                 </div>
             </div>
         );
